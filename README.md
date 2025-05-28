@@ -72,3 +72,36 @@ A full-stack web application built with the MERN stack to streamline doctor appo
   - Added dynamic styling for sections using CSS, including layout divisions (left, center, right) and uppercase text for headings.
   - Improved overall design with consistent typography, spacing, and responsive layouts across all new pages.
   - Ensured smooth navigation and interactivity with `onClick` events and dynamic class names for doctor filtering and booking slots.
+
+### Day 3: Backend Setup, Database Integration, and Responsive UI
+
+- **Dependency Installation**:
+  - Installed backend dependencies: `express`, `mongoose`, `multer`, `bcrypt`, `cloudinary`, `cors`, `dotenv`, `jsonwebtoken`, `nodemon`, and `validator` to enable server setup, database management, file uploads, authentication, and input validation.
+- **Appointments Page Development**:
+  - Created an `Appointments` page in the `Pages` folder to display doctor data, including profiles, booking slots, and related information.
+  - Styled the page with CSS to present doctor details (e.g., name, specialty, experience) in a user-friendly format.
+- **Responsive Design Enhancements**:
+  - Made the website responsive by applying CSS properties to ensure compatibility across devices.
+  - Developed a mobile menu with styled `ul` and `li` elements, including a filter button to toggle menu display.
+  - Added CSS for menu links and section elements to enhance mobile usability and visual appeal.
+- **Backend Server Setup**:
+  - Initialized an Express.js server using `express` to handle API requests.
+  - Created a server script with `nodemon` for automatic restarts during development.
+  - Configured `cors` to enable communication between the React frontend and Express backend.
+  - Set up environment variables using `dotenv` to securely store sensitive data (e.g., MongoDB Atlas URL, Cloudinary credentials) in a `.env` file.
+- **MongoDB Atlas Integration**:
+  - Established a connection to MongoDB Atlas using `mongoose`, configuring the database URL via environment variables.
+  - Created a database user and set up the connection string for secure access.
+- **Data Models**:
+  - Defined a `Doctor` model with a schema in `mongoose` to store doctor data (e.g., name, specialty, experience, image).
+  - Created a `User` model to store patient and admin data, including fields for authentication (e.g., email, hashed password).
+- **API and Admin Functionality**:
+  - Developed controller functions for APIs to manage doctor data, including an endpoint to add doctor data to the database.
+  - Created an admin router and endpoint for managing doctor information via an admin panel.
+  - Implemented `multer` middleware with `cloudinary` for uploading doctor profile images, storing URLs in the database.
+  - Added form fields for the doctor appointment booking form, with validation using `validator` for input checking (e.g., email format, required fields).
+- **Authentication and Security**:
+  - Used `bcrypt` to hash and securely store passwords for user accounts (e.g., admin and patient logins).
+  - Implemented admin login functionality with `jsonwebtoken` to generate tokens based on email and password validation.
+  - Created authentication middleware to verify tokens and protect admin routes, ensuring secure access to the admin panel.
+  - Resolved validation errors and configured assets (e.g., uploaded images) for proper storage and retrieval.
