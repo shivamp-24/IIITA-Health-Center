@@ -105,3 +105,43 @@ A full-stack web application built with the MERN stack to streamline doctor appo
   - Implemented admin login functionality with `jsonwebtoken` to generate tokens based on email and password validation.
   - Created authentication middleware to verify tokens and protect admin routes, ensuring secure access to the admin panel.
   - Resolved validation errors and configured assets (e.g., uploaded images) for proper storage and retrieval.
+
+### Day 4: Admin Panel Development and Doctor Management
+
+- **Dependency Installation**:
+  - Installed frontend dependencies: `axios` for API requests, `react-router-dom` for admin panel routing, and `react-toastify` for user feedback notifications.
+  - Installed dev dependencies: `tailwindcss`, `postcss`, and `autoprefixer` for styling the admin panel.
+  - Initialized Tailwind CSS with `npx tailwindcss init -p` to set up configuration files.
+- **Admin Panel Setup**:
+  - Created an admin panel section in the frontend to manage doctor data and system operations.
+  - Configured the project to run on specific ports, ensuring separation of frontend and backend services.
+  - Set up admin-specific assets (e.g., images, styles) and a React Context for managing admin-related state and logic.
+  - Established context providers for different user roles (e.g., admin, doctor) to handle role-specific functionality.
+- **Admin Authentication**:
+  - Developed state variables with `useState` to manage admin and doctor login states.
+  - Created a login form with email and password input fields, marked as `required`, styled with Tailwind CSS.
+  - Implemented admin login functionality:
+    - Created a form submission function to make API calls using `axios` based on user state.
+    - Fetched and stored authentication tokens from the backend for secure admin access.
+    - Added middleware to manage admin access with token storage and verification.
+    - Implemented logout functionality with a dedicated button in the admin panel.
+- **Admin Dashboard UI**:
+  - Designed the admin dashboard UI with a sidebar for navigation, styled using Tailwind CSS.
+  - Added menu items to the sidebar with icons and text, using dynamic class names for active navigation links.
+  - Styled dashboard elements (e.g., text, logo, logout button) with Tailwind CSS for a responsive and modern look.
+  - Configured routes with `react-router-dom` for seamless navigation within the admin panel (e.g., dashboard, add doctor page).
+- **Add Doctor Functionality**:
+  - Created an `Add Doctor` page with a form including input fields for doctor details (e.g., name, experience, fee) and a `select` tag for options like experience level.
+  - Linked form inputs to state variables using `useState` for real-time updates.
+  - Integrated `multer` and `cloudinary` (from Day 3) to handle doctor image uploads, displaying selected images in the form.
+  - Connected form submission to an API call using `axios` to add doctor data to the MongoDB database.
+  - Used `react-toastify` to display success or error messages after form submission.
+  - Reset input fields and image tags after successful submission for a clean user experience.
+- **Doctor Data Management**:
+  - Added 15 sample doctors to the MongoDB database via an API endpoint.
+  - Created an API to fetch all doctor data for display in the admin panel.
+  - Developed a UI section in the admin panel to list all doctors, retrieving details (e.g., name, specialty) with `axios` requests.
+  - Styled the doctor list with Tailwind CSS for clarity and responsiveness.
+- **Additional Enhancements**:
+  - Logged form values using template literals for debugging and validation.
+  - Resolved validation errors during form submission to ensure data integrity.
