@@ -145,3 +145,35 @@ A full-stack web application built with the MERN stack to streamline doctor appo
 - **Additional Enhancements**:
   - Logged form values using template literals for debugging and validation.
   - Resolved validation errors during form submission to ensure data integrity.
+
+### Day 5: Doctor Data Display, Patient Authentication, and Profile Management
+
+- **Doctor Data Display**:
+  - Created an API call using `axios` to fetch all doctor data from the MongoDB database for display in the admin panel and frontend website.
+  - Developed UI elements on the frontend to render the doctor list, including details like name, specialty, and availability.
+  - Applied Tailwind CSS (from Day 4) to style the doctor appointment booking page for a responsive and visually appealing layout.
+  - Implemented functionality to update doctor availability:
+    - Created a route and controller function to toggle availability status in the database.
+    - Updated the frontend to reflect changes in real-time using `axios` API calls.
+  - Defined a function to retrieve and display the doctor list on the frontend, ensuring seamless integration with the backend.
+- **Patient Login and Registration System**:
+  - Developed API logic for user authentication and appointment booking:
+    - Created a user registration route, saving user data (e.g., name, email, password) to MongoDB with `bcrypt` for password hashing.
+    - Implemented `jsonwebtoken` (JWT) to generate authentication tokens upon registration and login.
+    - Added validation for name, email, and password fields using `validator` to ensure data integrity.
+    - Handled registration errors (e.g., duplicate emails) with `try-catch` blocks and displayed feedback using `react-toastify`.
+  - Built a user login function:
+    - Created a login route to authenticate users by verifying email and password with `bcrypt`.
+    - Stored JWT tokens in React Context for persistent authentication across the frontend.
+    - Integrated login and registration forms with the frontend, linking form inputs to API calls via `axios`.
+  - Set up environment variables in the frontend (e.g., API base URL) using `dotenv` for secure configuration.
+  - Configured `react-toastify` to display error notifications for failed login or registration attempts.
+- **Patient Profile Management**:
+  - Created an API to retrieve and update patient profile data, including fields like name, email, address, and profile image.
+  - Developed a controller function to handle profile updates, checking available properties before saving changes to MongoDB.
+  - Implemented image upload functionality for patient profiles using `multer` and `cloudinary`, storing image URLs in the database.
+  - Built middleware functions for user authentication:
+    - Created authentication middleware to verify JWT tokens for protected profile routes.
+    - Added multiple middleware checks to ensure secure data updates.
+  - Enhanced the patient profile page UI with Tailwind CSS for styling form inputs, image displays, and layout sections.
+  - Used `try-catch` blocks in arrow functions to handle errors during profile updates, ensuring robust error handling.
