@@ -177,3 +177,32 @@ A full-stack web application built with the MERN stack to streamline doctor appo
     - Added multiple middleware checks to ensure secure data updates.
   - Enhanced the patient profile page UI with Tailwind CSS for styling form inputs, image displays, and layout sections.
   - Used `try-catch` blocks in arrow functions to handle errors during profile updates, ensuring robust error handling.
+
+### Day 6: Appointment Booking, Cancellation, and Profile Enhancements
+
+- **Patient Profile Updates**:
+  - Implemented logic to update patient profile data in the MongoDB database using `axios` API calls.
+  - Enhanced the profile form with an `input` field (`type="file"`) and image tags for profile picture uploads, integrated with `multer` and `cloudinary`.
+  - Added optional image upload functionality, allowing users to update profiles with or without new images.
+  - Applied Tailwind CSS (from Day 4) to style the profile update form and image display for a responsive layout.
+  - Tested and demonstrated profile updates, ensuring data and images are correctly saved and displayed.
+- **Appointment Booking Functionality**:
+  - Created an `Appointment` model using `mongoose`, defining a schema for appointment data (e.g., doctor, patient, date, time slot).
+  - Developed a controller function to book appointments, saving data to MongoDB via `axios` API calls.
+  - Implemented logic to:
+    - Access and manipulate doctor data (e.g., available slots) for booking.
+    - Update booked slots in the database to reflect availability changes.
+    - Ensure slot availability based on selected date and time.
+  - Fixed an error where “get doctor’s data is not a function” by correcting the API call structure.
+  - Integrated booking functionality with the frontend, linking form inputs to the booking API for seamless user interaction.
+- **Displaying Booked Appointments**:
+  - Created a controller function to fetch user appointments from the database using `axios`.
+  - Set up an API endpoint to retrieve appointment data, formatting dates for proper display on the frontend.
+  - Modified doctor data entries to ensure accurate rendering on the webpage (e.g., correct names, specialties).
+  - Displayed booked appointments on the frontend, styled with Tailwind CSS for clarity and responsiveness.
+- **Appointment Cancellation Feature**:
+  - Implemented logic to cancel appointments, updating the database to remove the appointment and free up the doctor’s slot.
+  - Created an API endpoint for cancellation, integrated with the frontend using `axios`.
+  - Added toggle buttons to reflect appointment status (e.g., booked or cancelled), styled with Tailwind CSS.
+  - Developed logic to display cancelled appointments, ensuring users can view their cancellation history.
+  - Extracted and updated doctor data to reflect slot availability changes after cancellations.
