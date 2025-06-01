@@ -206,3 +206,30 @@ A full-stack web application built with the MERN stack to streamline doctor appo
   - Added toggle buttons to reflect appointment status (e.g., booked or cancelled), styled with Tailwind CSS.
   - Developed logic to display cancelled appointments, ensuring users can view their cancellation history.
   - Extracted and updated doctor data to reflect slot availability changes after cancellations.
+
+### Day 7: Payment Integration and Admin Dashboard Enhancements
+
+- **Dependency Installation**:
+  - Installed `razorpay` (`npm install razorpay`) for backend integration of the Razorpay payment gateway to process online payments for appointments.
+- **Razorpay Payment Integration**:
+  - Configured Razorpay key ID and key secret in the `.env` file using `dotenv` for secure storage.
+  - Set up Razorpay in the backend to initiate and process payments, integrating with the MERN stack.
+  - Added Razorpay key ID to both backend and frontend for seamless payment flow.
+  - Created an API endpoint in the user route to generate and validate Razorpay order IDs.
+  - Implemented payment verification logic to update the appointment model with payment status in MongoDB.
+  - Connected the Razorpay verification API to a handler function, ensuring secure payment processing for the appointment booking system.
+- **Admin Panel Appointment Management**:
+  - Created an API endpoint using `axios` to fetch appointment data for the admin panel, including patient and doctor details.
+  - Developed functionality to display all appointments in the admin panel, showing patient details, doctor information, and fees.
+  - Implemented an appointment cancellation feature for admins:
+    - Added a dedicated admin route to cancel appointments, updating the database and freeing doctor slots.
+    - Styled the cancellation interface with Tailwind CSS (from Day 4) for a responsive design.
+  - Added logic to calculate patient age and format appointment dates/times for clear display.
+- **Admin Dashboard Development**:
+  - Built a comprehensive admin dashboard to manage appointments, doctors, and patients.
+  - Created state variables with `useState` to initialize and manage dashboard data.
+  - Designed the dashboard UI with Tailwind CSS, featuring:
+    - A layout displaying recent appointments, doctor details, and patient information.
+    - Styled sections for doctor images, names, and booking statuses.
+  - Configured dashboard routes with `react-router-dom` (from Day 4) and secured access using admin token authentication via `jsonwebtoken` (from Day 5).
+  - Fetched and displayed the latest appointments and patient data using `axios` API calls.
