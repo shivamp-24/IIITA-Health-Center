@@ -1,267 +1,124 @@
 # IIITA Health Center Doctor Appointment Booking System
 
-A full-stack web application built with the MERN stack to streamline doctor appointment scheduling. Students can log in, view doctor profiles, book and manage appointments, while admins can manage doctor information.
+A full-stack web application built with the MERN stack to streamline doctor appointment scheduling for the Indian Institute of Information Technology Allahabad (IIITA) Health Center. Students can register, log in, book and manage appointments with on-campus doctors, while admins and doctors oversee schedules, patient data, and health center operations.
+
+## Overview
+
+This project provides a scalable and secure platform for managing doctor appointments at the IIITA Health Center. Key features include user authentication, appointment booking with slot availability, online payment integration via Razorpay, and role-based dashboards for patients, admins, and doctors. Developed using the MERN stack (MongoDB, Express.js, React, Node.js), the application emphasizes responsive design, secure data handling, and a modern UI tailored for a college health center.
+
+## Features
+
+- **Patient Features**:
+  - Register and log in with secure authentication.
+  - View doctor profiles, filter by specialty, and book appointments.
+  - Manage appointments (view, cancel, pay online) and update personal profiles.
+- **Admin Features**:
+  - Manage doctor data, appointments, and patient records.
+  - Cancel appointments and generate reports via a comprehensive dashboard.
+- **Doctor Features**:
+  - View and manage appointments, mark as completed, or cancel.
+  - Update profile details (e.g., fees, availability) via a dedicated dashboard.
+- **General Features**:
+  - Responsive UI with Tailwind CSS for cross-device compatibility.
+  - Online payment processing with Razorpay.
+  - Secure data storage with MongoDB Atlas and Cloudinary for images.
 
 ## Technologies Used
 
-- **Frontend**: React, React Router, CSS
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
+- **Frontend**:
+  - React
+  - React Router
+  - Tailwind CSS
+  - Axios (HTTP requests)
+  - react-toastify (notifications)
+- **Backend**:
+  - Node.js
+  - Express.js
+  - Mongoose (MongoDB ORM)
+  - bcrypt (password hashing)
+  - jsonwebtoken (JWT authentication)
+  - Razorpay (payment gateway)
+  - Multer (file uploads)
+  - Cloudinary (image storage)
+  - CORS (cross-origin requests)
+  - dotenv (environment variables)
+  - Validator (input validation)
+  - Nodemon (development server)
+- **Database**: MongoDB (Atlas)
+- **Tools**: Git, GitHub, npm
+
+## Progress
 
 ### Day 1: Project Setup and Frontend Foundation
 
-- **Project Initialization**:
-  - Initialized a full-stack MERN project for a doctor appointment booking system.
-  - Set up the development environment, including Node.js and React project initialization using `create-react-app` or equivalent.
-  - Created a Git repository for version control and collaboration.
-- **Frontend Folder Structure**:
-  - Established a `Pages` folder in the frontend to organize React components for key pages (e.g., Homepage, Profile, Appointment Booking, Admin Dashboard).
-  - Set up a modular folder structure to separate components, styles, and context logic.
-- **Routing and Navigation**:
-  - Configured React Router to define routes for different pages (e.g., `/`, `/profile`, `/appointments`).
-  - Created and mounted a `Navbar` component for site-wide navigation, styled with CSS for `ul` and `hr` elements to ensure a clean and responsive design.
-  - Defined navigation paths for seamless transitions between the homepage and other pages.
-- **Authentication State Management**:
-  - Implemented boolean state variables using React’s `useState` hook to manage user authentication status and enable conditional rendering of UI elements (e.g., showing login/logout options).
-- **UI Components and Styling**:
-  - Developed a `Header` component with a two-column layout (left and right sections) containing content and images, styled with CSS for responsiveness and smooth scrolling.
-  - Added class names to `img` and `div` elements to ensure consistent styling across components.
-  - Created a profile navigation section within the header for user profile access.
-  - Built a specialty menu to display doctor profiles, styled with CSS to showcase details like name, specialty, and availability.
-  - Designed a footer component with structured content and updated fonts for a cohesive UI.
-  - Applied CSS properties to enhance the visual appeal of images, text, buttons, and layout sections (left, center, right).
-- **Doctor Data Display and Filtering**:
-  - Created UI components for rendering doctor data, including profile details and images.
-  - Implemented filtering functionality to allow users to browse doctors by specialty, with dynamic CSS styling based on selected specialties.
-  - Added navigation support for accessing doctor-specific pages and appointment booking interfaces.
-- **Context for Shared Logic**:
-  - Set up a React Context API to manage shared state and logic (e.g., authentication status, doctor data) across components.
-  - Integrated context support in the frontend to streamline data flow and reduce prop drilling.
+- Initialized a MERN stack project with `create-react-app` and a Node.js backend.
+- Set up a Git repository for version control.
+- Created a frontend structure with a `Pages` folder for components (e.g., Homepage, Profile).
+- Configured React Router for navigation and built a `Navbar` component.
+- Implemented authentication state management with `useState` and React Context.
+- Developed UI components (`Header`, specialty menu, footer) with CSS, enabling doctor data display and specialty filtering.
 
-### Day 2: Frontend Page Development and Appointment Booking UI
+### Day 2: Frontend Page Enhancements and Booking UI
 
-- **New Page Creation**:
-  - Developed the `Doctor Appointment` page in the `Pages` folder to display doctor details, booking slots, and related doctors.
-  - Created `About` and `Contact` pages to provide information about the platform and contact options.
-  - Built a `Login` page with a form for user authentication.
-  - Designed a `Patient Profile` page to display and edit user details, including profile picture functionality.
-- **Doctor Appointment Page**:
-  - Displayed doctor data (e.g., name, specialty, experience) and images using props for dynamic rendering.
-  - Implemented a related doctors section with filtering by specialty, leveraging `useEffect` hook and props for dynamic updates.
-  - Added a booking slot interface:
-    - Created state variables with `useState` to store and manage available appointment slots.
-    - Set up date and time selection for booking, including logic to calculate available slots.
-    - Fixed date format errors to ensure correct display.
-    - Displayed selected date’s time slots with dynamic class names and `onClick` event handlers for user interaction.
-    - Customized currency symbols for pricing details in the booking interface.
-  - Applied CSS properties to style booking slots, doctor profiles, and related sections for a cohesive and responsive layout.
-- **About and Contact Pages**:
-  - Structured sections with `div` elements, uppercase text, images, and buttons for improved user experience.
-  - Applied CSS properties to enhance layout, typography, and visual appeal of section elements.
-- **Login Page**:
-  - Initialized state for form inputs using `useState` to handle dynamic text updates.
-  - Created a login form with styled input fields, implementing logic for account creation and login state management.
-  - Applied CSS properties to design a responsive and user-friendly form layout.
-- **Patient Profile Page**:
-  - Built a user details object to store profile information (e.g., address, gender, basic details).
-  - Implemented editing functionality with conditional rendering to update profile fields.
-  - Added input fields for gender selection and date, styled with CSS for consistency.
-  - Designed UI for profile picture editing, allowing users to upload or update images.
-  - Applied CSS properties to format the profile page layout for a polished appearance.
-- **UI and Styling Enhancements**:
-  - Added dynamic styling for sections using CSS, including layout divisions (left, center, right) and uppercase text for headings.
-  - Improved overall design with consistent typography, spacing, and responsive layouts across all new pages.
-  - Ensured smooth navigation and interactivity with `onClick` events and dynamic class names for doctor filtering and booking slots.
+- Created `Doctor Appointment`, `About`, `Contact`, `Login`, and `Patient Profile` pages.
+- Built a booking interface with slot selection, date/time handling, and currency symbols.
+- Added filtering for related doctors using `useEffect` and props.
+- Designed responsive forms for login and profile editing, styled with Tailwind CSS.
+- Structured `About` and `Contact` pages with enhanced layouts.
 
-### Day 3: Backend Setup, Database Integration, and Responsive UI
+### Day 3: Backend Setup and Database Integration
 
-- **Dependency Installation**:
-  - Installed backend dependencies: `express`, `mongoose`, `multer`, `bcrypt`, `cloudinary`, `cors`, `dotenv`, `jsonwebtoken`, `nodemon`, and `validator` to enable server setup, database management, file uploads, authentication, and input validation.
-- **Appointments Page Development**:
-  - Created an `Appointments` page in the `Pages` folder to display doctor data, including profiles, booking slots, and related information.
-  - Styled the page with CSS to present doctor details (e.g., name, specialty, experience) in a user-friendly format.
-- **Responsive Design Enhancements**:
-  - Made the website responsive by applying CSS properties to ensure compatibility across devices.
-  - Developed a mobile menu with styled `ul` and `li` elements, including a filter button to toggle menu display.
-  - Added CSS for menu links and section elements to enhance mobile usability and visual appeal.
-- **Backend Server Setup**:
-  - Initialized an Express.js server using `express` to handle API requests.
-  - Created a server script with `nodemon` for automatic restarts during development.
-  - Configured `cors` to enable communication between the React frontend and Express backend.
-  - Set up environment variables using `dotenv` to securely store sensitive data (e.g., MongoDB Atlas URL, Cloudinary credentials) in a `.env` file.
-- **MongoDB Atlas Integration**:
-  - Established a connection to MongoDB Atlas using `mongoose`, configuring the database URL via environment variables.
-  - Created a database user and set up the connection string for secure access.
-- **Data Models**:
-  - Defined a `Doctor` model with a schema in `mongoose` to store doctor data (e.g., name, specialty, experience, image).
-  - Created a `User` model to store patient and admin data, including fields for authentication (e.g., email, hashed password).
-- **API and Admin Functionality**:
-  - Developed controller functions for APIs to manage doctor data, including an endpoint to add doctor data to the database.
-  - Created an admin router and endpoint for managing doctor information via an admin panel.
-  - Implemented `multer` middleware with `cloudinary` for uploading doctor profile images, storing URLs in the database.
-  - Added form fields for the doctor appointment booking form, with validation using `validator` for input checking (e.g., email format, required fields).
-- **Authentication and Security**:
-  - Used `bcrypt` to hash and securely store passwords for user accounts (e.g., admin and patient logins).
-  - Implemented admin login functionality with `jsonwebtoken` to generate tokens based on email and password validation.
-  - Created authentication middleware to verify tokens and protect admin routes, ensuring secure access to the admin panel.
-  - Resolved validation errors and configured assets (e.g., uploaded images) for proper storage and retrieval.
+- Installed backend dependencies: `express`, `mongoose`, `multer`, `bcrypt`, `cloudinary`, `cors`, `dotenv`, `jsonwebtoken`, `nodemon`, `validator`.
+- Set up an Express.js server with MongoDB Atlas connectivity.
+- Defined `Doctor` and `User` models with `mongoose`.
+- Created APIs for admin tasks (e.g., add doctor) and implemented file uploads with `multer` and `cloudinary`.
+- Enhanced frontend responsiveness with a mobile menu and filter toggles.
+- Secured admin login with JWT tokens and `bcrypt` password hashing.
 
-### Day 4: Admin Panel Development and Doctor Management
+### Day 4: Admin Panel and Doctor Management
 
-- **Dependency Installation**:
-  - Installed frontend dependencies: `axios` for API requests, `react-router-dom` for admin panel routing, and `react-toastify` for user feedback notifications.
-  - Installed dev dependencies: `tailwindcss`, `postcss`, and `autoprefixer` for styling the admin panel.
-  - Initialized Tailwind CSS with `npx tailwindcss init -p` to set up configuration files.
-- **Admin Panel Setup**:
-  - Created an admin panel section in the frontend to manage doctor data and system operations.
-  - Configured the project to run on specific ports, ensuring separation of frontend and backend services.
-  - Set up admin-specific assets (e.g., images, styles) and a React Context for managing admin-related state and logic.
-  - Established context providers for different user roles (e.g., admin, doctor) to handle role-specific functionality.
-- **Admin Authentication**:
-  - Developed state variables with `useState` to manage admin and doctor login states.
-  - Created a login form with email and password input fields, marked as `required`, styled with Tailwind CSS.
-  - Implemented admin login functionality:
-    - Created a form submission function to make API calls using `axios` based on user state.
-    - Fetched and stored authentication tokens from the backend for secure admin access.
-    - Added middleware to manage admin access with token storage and verification.
-    - Implemented logout functionality with a dedicated button in the admin panel.
-- **Admin Dashboard UI**:
-  - Designed the admin dashboard UI with a sidebar for navigation, styled using Tailwind CSS.
-  - Added menu items to the sidebar with icons and text, using dynamic class names for active navigation links.
-  - Styled dashboard elements (e.g., text, logo, logout button) with Tailwind CSS for a responsive and modern look.
-  - Configured routes with `react-router-dom` for seamless navigation within the admin panel (e.g., dashboard, add doctor page).
-- **Add Doctor Functionality**:
-  - Created an `Add Doctor` page with a form including input fields for doctor details (e.g., name, experience, fee) and a `select` tag for options like experience level.
-  - Linked form inputs to state variables using `useState` for real-time updates.
-  - Integrated `multer` and `cloudinary` (from Day 3) to handle doctor image uploads, displaying selected images in the form.
-  - Connected form submission to an API call using `axios` to add doctor data to the MongoDB database.
-  - Used `react-toastify` to display success or error messages after form submission.
-  - Reset input fields and image tags after successful submission for a clean user experience.
-- **Doctor Data Management**:
-  - Added 15 sample doctors to the MongoDB database via an API endpoint.
-  - Created an API to fetch all doctor data for display in the admin panel.
-  - Developed a UI section in the admin panel to list all doctors, retrieving details (e.g., name, specialty) with `axios` requests.
-  - Styled the doctor list with Tailwind CSS for clarity and responsiveness.
-- **Additional Enhancements**:
-  - Logged form values using template literals for debugging and validation.
-  - Resolved validation errors during form submission to ensure data integrity.
+- Installed frontend dependencies: `axios`, `react-router-dom`, `react-toastify`, `tailwindcss`.
+- Built an admin panel with a dashboard, sidebar, and routes for navigation.
+- Implemented admin authentication with JWT tokens and login/logout functionality.
+- Created an `Add Doctor` form with image uploads, integrated with backend APIs.
+- Displayed a doctor list in the admin panel, styled with Tailwind CSS.
 
-### Day 5: Doctor Data Display, Patient Authentication, and Profile Management
+### Day 5: Doctor Data Display and Patient Authentication
 
-- **Doctor Data Display**:
-  - Created an API call using `axios` to fetch all doctor data from the MongoDB database for display in the admin panel and frontend website.
-  - Developed UI elements on the frontend to render the doctor list, including details like name, specialty, and availability.
-  - Applied Tailwind CSS (from Day 4) to style the doctor appointment booking page for a responsive and visually appealing layout.
-  - Implemented functionality to update doctor availability:
-    - Created a route and controller function to toggle availability status in the database.
-    - Updated the frontend to reflect changes in real-time using `axios` API calls.
-  - Defined a function to retrieve and display the doctor list on the frontend, ensuring seamless integration with the backend.
-- **Patient Login and Registration System**:
-  - Developed API logic for user authentication and appointment booking:
-    - Created a user registration route, saving user data (e.g., name, email, password) to MongoDB with `bcrypt` for password hashing.
-    - Implemented `jsonwebtoken` (JWT) to generate authentication tokens upon registration and login.
-    - Added validation for name, email, and password fields using `validator` to ensure data integrity.
-    - Handled registration errors (e.g., duplicate emails) with `try-catch` blocks and displayed feedback using `react-toastify`.
-  - Built a user login function:
-    - Created a login route to authenticate users by verifying email and password with `bcrypt`.
-    - Stored JWT tokens in React Context for persistent authentication across the frontend.
-    - Integrated login and registration forms with the frontend, linking form inputs to API calls via `axios`.
-  - Set up environment variables in the frontend (e.g., API base URL) using `dotenv` for secure configuration.
-  - Configured `react-toastify` to display error notifications for failed login or registration attempts.
-- **Patient Profile Management**:
-  - Created an API to retrieve and update patient profile data, including fields like name, email, address, and profile image.
-  - Developed a controller function to handle profile updates, checking available properties before saving changes to MongoDB.
-  - Implemented image upload functionality for patient profiles using `multer` and `cloudinary`, storing image URLs in the database.
-  - Built middleware functions for user authentication:
-    - Created authentication middleware to verify JWT tokens for protected profile routes.
-    - Added multiple middleware checks to ensure secure data updates.
-  - Enhanced the patient profile page UI with Tailwind CSS for styling form inputs, image displays, and layout sections.
-  - Used `try-catch` blocks in arrow functions to handle errors during profile updates, ensuring robust error handling.
+- Fetched and displayed doctor data on the frontend using `axios`.
+- Implemented patient login/registration with JWT tokens, `bcrypt` hashing, and `validator` checks.
+- Enabled doctor availability updates via API and frontend toggles.
+- Enhanced patient profile management with image uploads and secure updates.
+- Configured `react-toastify` for error notifications.
 
-### Day 6: Appointment Booking, Cancellation, and Profile Enhancements
+### Day 6: Appointment Booking and Cancellation
 
-- **Patient Profile Updates**:
-  - Implemented logic to update patient profile data in the MongoDB database using `axios` API calls.
-  - Enhanced the profile form with an `input` field (`type="file"`) and image tags for profile picture uploads, integrated with `multer` and `cloudinary`.
-  - Added optional image upload functionality, allowing users to update profiles with or without new images.
-  - Applied Tailwind CSS (from Day 4) to style the profile update form and image display for a responsive layout.
-  - Tested and demonstrated profile updates, ensuring data and images are correctly saved and displayed.
-- **Appointment Booking Functionality**:
-  - Created an `Appointment` model using `mongoose`, defining a schema for appointment data (e.g., doctor, patient, date, time slot).
-  - Developed a controller function to book appointments, saving data to MongoDB via `axios` API calls.
-  - Implemented logic to:
-    - Access and manipulate doctor data (e.g., available slots) for booking.
-    - Update booked slots in the database to reflect availability changes.
-    - Ensure slot availability based on selected date and time.
-  - Fixed an error where “get doctor’s data is not a function” by correcting the API call structure.
-  - Integrated booking functionality with the frontend, linking form inputs to the booking API for seamless user interaction.
-- **Displaying Booked Appointments**:
-  - Created a controller function to fetch user appointments from the database using `axios`.
-  - Set up an API endpoint to retrieve appointment data, formatting dates for proper display on the frontend.
-  - Modified doctor data entries to ensure accurate rendering on the webpage (e.g., correct names, specialties).
-  - Displayed booked appointments on the frontend, styled with Tailwind CSS for clarity and responsiveness.
-- **Appointment Cancellation Feature**:
-  - Implemented logic to cancel appointments, updating the database to remove the appointment and free up the doctor’s slot.
-  - Created an API endpoint for cancellation, integrated with the frontend using `axios`.
-  - Added toggle buttons to reflect appointment status (e.g., booked or cancelled), styled with Tailwind CSS.
-  - Developed logic to display cancelled appointments, ensuring users can view their cancellation history.
-  - Extracted and updated doctor data to reflect slot availability changes after cancellations.
+- Updated patient profiles with optional image uploads using `multer` and `cloudinary`.
+- Created an `Appointment` model and APIs for booking, saving data to MongoDB.
+- Displayed booked appointments with formatted dates and statuses.
+- Implemented appointment cancellation, updating doctor slots and showing cancellation history.
 
-### Day 7: Payment Integration and Admin Dashboard Enhancements
+### Day 7: Payment Integration and Admin Dashboard
 
-- **Dependency Installation**:
-  - Installed `razorpay` (`npm install razorpay`) for backend integration of the Razorpay payment gateway to process online payments for appointments.
-- **Razorpay Payment Integration**:
-  - Configured Razorpay key ID and key secret in the `.env` file using `dotenv` for secure storage.
-  - Set up Razorpay in the backend to initiate and process payments, integrating with the MERN stack.
-  - Added Razorpay key ID to both backend and frontend for seamless payment flow.
-  - Created an API endpoint in the user route to generate and validate Razorpay order IDs.
-  - Implemented payment verification logic to update the appointment model with payment status in MongoDB.
-  - Connected the Razorpay verification API to a handler function, ensuring secure payment processing for the appointment booking system.
-- **Admin Panel Appointment Management**:
-  - Created an API endpoint using `axios` to fetch appointment data for the admin panel, including patient and doctor details.
-  - Developed functionality to display all appointments in the admin panel, showing patient details, doctor information, and fees.
-  - Implemented an appointment cancellation feature for admins:
-    - Added a dedicated admin route to cancel appointments, updating the database and freeing doctor slots.
-    - Styled the cancellation interface with Tailwind CSS (from Day 4) for a responsive design.
-  - Added logic to calculate patient age and format appointment dates/times for clear display.
-- **Admin Dashboard Development**:
-  - Built a comprehensive admin dashboard to manage appointments, doctors, and patients.
-  - Created state variables with `useState` to initialize and manage dashboard data.
-  - Designed the dashboard UI with Tailwind CSS, featuring:
-    - A layout displaying recent appointments, doctor details, and patient information.
-    - Styled sections for doctor images, names, and booking statuses.
-  - Configured dashboard routes with `react-router-dom` (from Day 4) and secured access using admin token authentication via `jsonwebtoken` (from Day 5).
-  - Fetched and displayed the latest appointments and patient data using `axios` API calls.
+- Installed `razorpay` for online payment processing.
+- Integrated Razorpay with secure key storage in `.env`, enabling payment for appointments.
+- Enhanced the admin panel to manage appointments, including cancellation and patient details.
+- Built a comprehensive admin dashboard with metrics and recent appointments, styled with Tailwind CSS.
 
-### Day 8: Doctor Panel Development and Appointment Management
+### Day 8: Doctor Panel and Appointment Management
 
-- **Doctor Panel Setup**:
-  - Created a doctor panel with a dedicated dashboard to manage appointments and profile data.
-  - Developed multiple pages within the panel (e.g., dashboard, appointments, profile) using `react-router-dom` (from Day 4) for navigation.
-  - Configured the panel UI with `Tailwind CSS` (from Day 4) for a responsive and modern design, optimized for smaller screens.
-- **Doctor Authentication**:
-  - Implemented doctor login functionality using email and password:
-    - Created a login API route in the backend with `express` and `mongoose` (from Day 3).
-    - Used `bcrypt` (from Day 3) for password verification and `jsonwebtoken` (from Day 5) to generate tokens for secure authentication.
-    - Added doctor authentication middleware to protect panel routes, ensuring only authorized doctors can access the dashboard.
-  - Fixed the logout feature to clear tokens and redirect doctors to the login page.
-- **Appointment Management in Doctor Panel**:
-  - Set up API endpoints using `axios` (from Day 4) to fetch appointment data for the logged-in doctor.
-  - Displayed appointment data in a table format, including patient details (e.g., name, age calculated from date of birth), doctor details, fees with currency symbols, and appointment status.
-  - Implemented functionality to:
-    - Mark appointments as completed with a dedicated API route and controller function.
-    - Cancel appointments, updating the database to free up slots and reflect status changes.
-  - Added conditional rendering with state management (`useState`) to toggle UI elements (e.g., “Pay Online” and “Cancel” buttons) based on appointment status.
-  - Used detailed messages and `Tailwind CSS` to style appointment status indicators for clarity.
-- **Doctor Dashboard**:
-  - Built a doctor dashboard to display key metrics, including earnings, total appointments, and recent bookings.
-  - Created an API endpoint to fetch dashboard data (e.g., appointment counts, patient details).
-  - Designed the dashboard UI with `Tailwind CSS`, featuring sections for appointments, patient data, and earnings with currency symbols.
-- **Doctor Profile Management**:
-  - Developed a controller function to fetch and update doctor profile data (e.g., fee, address, availability).
-  - Created a profile page in the doctor panel to display and edit information:
-    - Used `useState` to toggle between text display and input fields for editing fields like appointment fees.
-    - Integrated `multer` and `cloudinary` (from Day 3) for updating profile images, saving URLs in MongoDB.
-  - Implemented API calls with `axios` to save profile changes, ensuring data validation and error handling.
-  - Styled the profile page with `Tailwind CSS` for a consistent and responsive layout.
+- Created a doctor panel with a dashboard for appointments and profile management.
+- Implemented doctor authentication with JWT tokens and login/logout functionality.
+- Enabled doctors to view, complete, or cancel appointments, with status-based UI toggles.
+- Built a doctor dashboard with earnings and appointment metrics.
+- Added profile editing for doctors (e.g., fees, availability) with image uploads.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make changes and commit (`git commit -m "Add feature"`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a pull request.
