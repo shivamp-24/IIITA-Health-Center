@@ -233,3 +233,35 @@ A full-stack web application built with the MERN stack to streamline doctor appo
     - Styled sections for doctor images, names, and booking statuses.
   - Configured dashboard routes with `react-router-dom` (from Day 4) and secured access using admin token authentication via `jsonwebtoken` (from Day 5).
   - Fetched and displayed the latest appointments and patient data using `axios` API calls.
+
+### Day 8: Doctor Panel Development and Appointment Management
+
+- **Doctor Panel Setup**:
+  - Created a doctor panel with a dedicated dashboard to manage appointments and profile data.
+  - Developed multiple pages within the panel (e.g., dashboard, appointments, profile) using `react-router-dom` (from Day 4) for navigation.
+  - Configured the panel UI with `Tailwind CSS` (from Day 4) for a responsive and modern design, optimized for smaller screens.
+- **Doctor Authentication**:
+  - Implemented doctor login functionality using email and password:
+    - Created a login API route in the backend with `express` and `mongoose` (from Day 3).
+    - Used `bcrypt` (from Day 3) for password verification and `jsonwebtoken` (from Day 5) to generate tokens for secure authentication.
+    - Added doctor authentication middleware to protect panel routes, ensuring only authorized doctors can access the dashboard.
+  - Fixed the logout feature to clear tokens and redirect doctors to the login page.
+- **Appointment Management in Doctor Panel**:
+  - Set up API endpoints using `axios` (from Day 4) to fetch appointment data for the logged-in doctor.
+  - Displayed appointment data in a table format, including patient details (e.g., name, age calculated from date of birth), doctor details, fees with currency symbols, and appointment status.
+  - Implemented functionality to:
+    - Mark appointments as completed with a dedicated API route and controller function.
+    - Cancel appointments, updating the database to free up slots and reflect status changes.
+  - Added conditional rendering with state management (`useState`) to toggle UI elements (e.g., “Pay Online” and “Cancel” buttons) based on appointment status.
+  - Used detailed messages and `Tailwind CSS` to style appointment status indicators for clarity.
+- **Doctor Dashboard**:
+  - Built a doctor dashboard to display key metrics, including earnings, total appointments, and recent bookings.
+  - Created an API endpoint to fetch dashboard data (e.g., appointment counts, patient details).
+  - Designed the dashboard UI with `Tailwind CSS`, featuring sections for appointments, patient data, and earnings with currency symbols.
+- **Doctor Profile Management**:
+  - Developed a controller function to fetch and update doctor profile data (e.g., fee, address, availability).
+  - Created a profile page in the doctor panel to display and edit information:
+    - Used `useState` to toggle between text display and input fields for editing fields like appointment fees.
+    - Integrated `multer` and `cloudinary` (from Day 3) for updating profile images, saving URLs in MongoDB.
+  - Implemented API calls with `axios` to save profile changes, ensuring data validation and error handling.
+  - Styled the profile page with `Tailwind CSS` for a consistent and responsive layout.
